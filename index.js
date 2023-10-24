@@ -115,20 +115,29 @@ profitChanges.forEach(item => sumChanges = item + sumChanges);
 //console.log(sumChanges);
 
 var avg = sumChanges / (months - 1);
-console.log(avg.toFixed(2));
+console.log('Average Change:' + ' ' + avg.toFixed(2));
 
 
 // // The greatest increase in profits (date and amount) over the entire period.
 
-var iterator = finances.values();
+// var iterator = finances.values();
 
-for (var value of iterator) {
-  profit = value;
-  console.log(profit);
-};
+//for (var value of iterator) {
+  //profit = value;
+  //console.log(profit);
+//};
 
 
-const max = [...profit].sort((a,b)=>a-b).pop();
-console.log(max);
+var maxElement = profitChanges.reduce((a, b) => {
+    return Math.max(a, b);
+});
+
+console.log('Greatest Increase in Profits/Losses:' + ' ' + '(' + '$' + maxElement + ')'); 
+
 // // The greatest decrease in losses (date and amount) over the entire period.
 // console.log(Math.min());
+var minElement = profitChanges.reduce((a, b) => {
+    return Math.min(a, b);
+});
+
+console.log('Greatest Decrease in Profits/Losses:' + ' ' + '(' + '$' + minElement + ')'); 
