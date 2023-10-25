@@ -107,7 +107,7 @@ console.log('Total:' + ' ' + '$' + total);
 var profitChanges = [];
 for (let i = 0; i < finances.length-1; i++) {
   profitChanges.push(finances[i + 1][1] - finances[i][1]);
-}
+};
 //console.log(profitChanges); 
 
 var sumChanges = 0;
@@ -119,14 +119,6 @@ console.log('Average Change:' + ' ' + avg.toFixed(2));
 
 
 // // The greatest increase in profits (date and amount) over the entire period.
-
-// var iterator = finances.values();
-
-//for (var value of iterator) {
-  //profit = value;
-  //console.log(profit);
-//};
-
 
 var maxElement = profitChanges.reduce((a, b) => {
     return Math.max(a, b);
