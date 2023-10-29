@@ -108,28 +108,32 @@ var profitChanges = [];
 for (let i = 0; i < finances.length-1; i++) {
   profitChanges.push(finances[i + 1][1] - finances[i][1]);
 };
-//console.log(profitChanges); 
 
 var sumChanges = 0;
 profitChanges.forEach(item => sumChanges = item + sumChanges);
-//console.log(sumChanges);
 
 var avg = sumChanges / (months - 1);
 console.log('Average Change:' + ' ' + avg.toFixed(2));
 
 
-// // The greatest increase in profits (date and amount) over the entire period.
+// The greatest increase in profits (date and amount) over the entire period.
 
 var maxElement = profitChanges.reduce((a, b) => {
-    return Math.max(a, b);
+  return Math.max(a, b);
 });
 
-console.log('Greatest Increase in Profits/Losses:' + ' ' + '(' + '$' + maxElement + ')'); 
+var maxIndex = profitChanges.indexOf(maxElement);
+var getMaxDate = finances[maxIndex+1][0];
+
+console.log('Greatest Increase in Profits/Losses:' + ' ' + getMaxDate + ' ' + '(' + '$' + maxElement + ')'); 
 
 // // The greatest decrease in losses (date and amount) over the entire period.
-// console.log(Math.min());
+
 var minElement = profitChanges.reduce((a, b) => {
     return Math.min(a, b);
 });
 
-console.log('Greatest Decrease in Profits/Losses:' + ' ' + '(' + '$' + minElement + ')'); 
+var minIndex = profitChanges.indexOf(minElement);
+var getMinDate = finances[minIndex+1][0];
+
+console.log('Greatest Decrease in Profits/Losses:' + ' ' + getMinDate + ' ' +'(' + '$' + minElement + ')'); 
